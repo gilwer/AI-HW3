@@ -46,8 +46,8 @@ def evaluate(classifier_factory, k):
 def test_k():
     k = [1,3,5,7,13]
     for i in range(len(k)):
-        accuracy, errors = evaluate(knn_factory(k[i]),2)
-        print(k[i],accuracy,errors)
+        accuracy, errors = evaluate(knn_factory(k[i]), 2)
+        print(k[i], accuracy, errors)
 
 
 if __name__ == '__main__':
