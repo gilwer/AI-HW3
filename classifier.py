@@ -4,7 +4,7 @@ from hw3_utils import abstract_classifier, abstract_classifier_factory
 from submission_utils import euclidean_distance
 
 
-class km_classifier(abstract_classifier):
+class knn_classifier(abstract_classifier):
 
     def __init__(self, k, data, tags):
         self.k = k
@@ -22,4 +22,4 @@ class km_factory(abstract_classifier_factory):
         self.k = k
 
     def train(self, data, labels):
-        return km_classifier(self.k, data, labels)
+        return knn_classifier(self.k, data, labels)
