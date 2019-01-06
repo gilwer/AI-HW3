@@ -12,10 +12,10 @@ class knn_classifier(abstract_classifier):
 
     def classify(self, features):
         ls = sorted(range(len(self.tags)),
-               key = lambda i: (list(map(lambda x: euclidean_distance(x, features), self.data.tolist())))[i])
+               key = lambda i: (list(map(lambda x: euclidean_distance(x, features), self.data)))[i])
         return sum([self.tags[ls[i]] for i in range(self.k)]) > (self.k/2)
 
-class km_factory(abstract_classifier_factory):
+class knn_factory(abstract_classifier_factory):
 
     def __init__(self, k):
         self.k = k
