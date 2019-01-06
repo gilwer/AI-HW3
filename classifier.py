@@ -1,4 +1,3 @@
-from functools import reduce
 
 from hw3_utils import abstract_classifier, abstract_classifier_factory
 from submission_utils import euclidean_distance
