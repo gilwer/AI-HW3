@@ -19,8 +19,8 @@ def random_partition(lst, n):
 
 
 def load_k_fold_data(i):
-    path = "ecg_fold_" + str(i+1) + ".data"
-    return pickle.load(open(path, "wb"))
+    path = "ecg_fold_" + str(i) + ".data"
+    return pickle.load(open(path, "rb"))
 
 
 def run_init():
@@ -29,4 +29,8 @@ def run_init():
 
 
 if __name__ == '__main__':
-    run_init()
+    #run_init()
+    a = load_k_fold_data(1)
+    b = load_k_fold_data(2)
+    print(a)
+    print(b)
