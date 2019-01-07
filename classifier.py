@@ -39,7 +39,7 @@ class decision_tree_classifier(abstract_classifier):
        self.tree_classifier = tree_classifier
 
     def classify(self, features):
-        return self.tree_classifier.predict(features)
+        return self.tree_classifier.predict([features])[0]
 
 class perceptron_classifier(abstract_classifier):
 
@@ -47,7 +47,7 @@ class perceptron_classifier(abstract_classifier):
         self.precption = precption
 
     def classify(self, features):
-        return self.precption.predict(features)
+        return self.precption.predict([features])[0]
 
 
 class perceptron_factory(abstract_classifier_factory):
