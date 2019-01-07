@@ -1,8 +1,9 @@
+import csv
 import pickle
 import random
 from functools import reduce
 
-from classifier import knn_factory
+from classifier import knn_factory, decision_factory, perceptron_factory
 from hw3_utils import load_data
 
 
@@ -42,13 +43,25 @@ def evaluate(classifier_factory, k):
         num_tests += len(result)
     return num_correct/num_tests, 1 - num_correct/num_tests
 
+def run_additional_tests():
+    accuracy_tree, errors_tree = evaluate(decision_factory(), 2)
+    accuracy_percept, errors_percept = evaluate(perceptron_factory(), 2)
+    with open('experiment12.csv', mode='a', newline='') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',')
+        writer.writerow([1, accuracy_tree, errors_tree])
+        writer.writerow([2, accuracy_percept, errors_percept])
+
 
 def test_k():
-    k = [1,3,5,7,13]
+    k = [1, 3, 5, 7, 13]
     for i in range(len(k)):
         accuracy, errors = evaluate(knn_factory(k[i]), 2)
-        print(k[i], accuracy, errors)
+        with open('knn_exp.csv', mode='a', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',')
+            writer.writerow([k[i], accuracy, errors])
+
 
 
 if __name__ == '__main__':
-    test_k()
+  #  test_k()
+    run_additional_tests()
